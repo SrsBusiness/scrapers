@@ -51,7 +51,6 @@ int HTTP_get(struct Requests *request, char *url, struct Buffer *buffer) {
  * TODO: add support for custom HTTP Headers
  */
 
-
 /* Simple function to post strings */
 int HTTP_post_str(struct Requests *request, char *url, char *post_data) {
     curl_easy_setopt(request->curl[POST], CURLOPT_URL, url);

@@ -1,3 +1,6 @@
+#ifndef REQUESTS_H
+#define REQUESTS_H
+
 #include <curl/curl.h>
 #include "buffer.h"
 
@@ -7,7 +10,7 @@ enum Request_method {
     PUT,
     DELETE,
     PATCH,
-    METHOD_COUNT
+    METHOD_COUNT /* Must always be last */
 };
 
 struct Requests {
@@ -28,9 +31,10 @@ int HTTP_get(struct Requests *request, char *url, struct Buffer *buffer);
  * TODO: add support for custom HTTP Headers
  */
 
-
 /* Simple function to post strings */
 int HTTP_post_str(struct Requests *request, char *url, char *post_data);
 
 /* Simple funciton to post binary data */
 int HTTP_post_bin(struct Requests *request, char *url, void *post_data, size_t post_len);
+
+#endif
